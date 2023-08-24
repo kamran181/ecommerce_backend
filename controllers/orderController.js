@@ -54,3 +54,13 @@ export const postOrder = async (req, res, next) => {
     }
 
 }
+
+
+export const getSingleOrder = async(req,res,next)=>{
+    try {
+        let order = await Order.findById({_id : req.params.id});
+        res.status(200).send(order);
+    } catch (error) {
+        console.log(error);
+    }
+}
